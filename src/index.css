@@ -5,6 +5,10 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background-color: rgb(160, 160, 160);
+  background-size: auto;
+  box-sizing: border-box;
 }
 
 code {
