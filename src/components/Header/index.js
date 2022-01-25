@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Header.module.css"
+import PropTypes from "prop-types";
+import styles from "./Header.module.css";
 
 
 export const Header = (props) => {
@@ -11,4 +11,8 @@ export const Header = (props) => {
          <h2 className={styles.text}>{props.title}</h2>
       </div>
    )
+}
+
+Header.propTypes = {
+   title: PropTypes.string
 }

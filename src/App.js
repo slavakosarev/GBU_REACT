@@ -1,13 +1,13 @@
 import './App.css';
-import { Header } from "./components";
-import { Message } from "./components";
+import { Header } from './components';
+import { Messenger } from './components';
 
 function App() {
 
   return (
     <div className="App">
       <Header title="Single Page Application"></Header>
-      <Message />
+      <Messenger />
     </div >
   );
 }
