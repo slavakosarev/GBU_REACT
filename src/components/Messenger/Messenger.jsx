@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { makeStyles } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { ChatList } from './ChatList';
 import { MessageList } from './MessageList';
 import { MessageInput } from './MessageInput';
@@ -8,7 +8,8 @@ import { MessageInput } from './MessageInput';
 const useStyles = makeStyles({
    wrapper: {
       display: "grid",
-      gridTemplateColumns: "200px 1fr"
+      gridTemplateColumns: "200px 1fr",
+      color: 'white'
    }
 });
 
@@ -49,19 +50,19 @@ export const Messenger = () => {
          <ChatList
             list={[
                {
-                  name: "name",
+                  name: "chat",
                   id: "1"
                },
                {
-                  name: "name",
+                  name: "chat",
                   id: "2"
                },
                {
-                  name: "name",
+                  name: "chat",
                   id: "3"
                },
                {
-                  name: "name",
+                  name: "chat",
                   id: "4"
                }
             ]}

@@ -15,7 +15,7 @@ export const MessageList = (props) => {
 MessageList.propTypes = {
    messageList: propTypes.arrayOf(
       propTypes.shape({
-         id: propTypes.string,
+         id: propTypes.number,
          text: propTypes.string,
          author: propTypes.string
       })
