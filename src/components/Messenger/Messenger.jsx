@@ -1,21 +1,13 @@
 import { useEffect, useState } from 'react';
-import { makeStyles } from '@mui/styles';
-import { ChatList } from './ChatList';
 import { MessageList } from './MessageList';
 import { MessageInput } from './MessageInput';
+import { useParams, Redirect } from 'react-router-dom';
+import { CHATS } from '../../mocks/chats'
 
-
-const useStyles = makeStyles({
-   wrapper: {
-      display: "grid",
-      gridTemplateColumns: "200px 1fr",
-      color: 'white'
-   }
-});
 
 
 export const Messenger = () => {
-   const classes = useStyles();
+   const { chatId } = useParams();
    const [messageList, setMessageList] = useState([]);
    const sendMessage = (autor, text) => {
       const newMessageList = [...messageList];
@@ -45,32 +37,15 @@ export const Messenger = () => {
       setTimeout(() => sendMessage('bot', 'hello'), 1500);
    }, [messageList, sendMessage]);
 
+   if (!CHATS.find(({ id }) => id === chatId)) {
+      return <Redirect to="/chats" />
+   }
+
    return (
-      <div className={classes.wrapper}>
-         <ChatList
-            list={[
-               {
-                  name: "chat",
-                  id: "1"
-               },
-               {
-                  name: "chat",
-                  id: "2"
-               },
-               {
-                  name: "chat",
-                  id: "3"
-               },
-               {
-                  name: "chat",
-                  id: "4"
-               }
-            ]}
-         />
-         <div>
-            <MessageList messageList={messageList} />
-            <MessageInput onSend={onSendMessage} />
-         </div>
-      </div>
+      <>
+         <MessageList messageList={messageList} />
+         <MessageInput onSend={onSendMessage} />
+      </>
+      
    )
 };

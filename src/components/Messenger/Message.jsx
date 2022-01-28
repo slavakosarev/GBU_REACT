@@ -6,9 +6,7 @@ const useStyles = makeStyles(() => ({
    listitem: {
       display: 'flex',
       alignItems: 'center',
-      paddingLeft: '16px',
-      width: '50%',
-      margin: '0 24% 0 16%'
+      margin: '0 0 0 15%'
    }
 }));
 export const Message = (props) => {

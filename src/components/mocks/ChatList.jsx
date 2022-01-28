@@ -1,6 +1,6 @@
 import { List } from '@mui/material';
 import propTypes from 'prop-types';
-import { Chat } from './Chat';
+import { Chat } from '../Messenger/Chat';
 
 export const ChatList = ({ list }) => {
    return (
@@ -8,6 +8,7 @@ export const ChatList = ({ list }) => {
          {list.map((item) => (
             <Chat key={item.id} {...item} />
          ))}
+         <Chat id="1" name="nochat" />
       </List>
    )
 };
