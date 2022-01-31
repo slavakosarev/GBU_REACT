@@ -1,6 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import styles from "./Header.module.css"
-
 
 export const Header = (props) => {
    return (
@@ -11,4 +10,4 @@ export const Header = (props) => {
          <h2 className={styles.text}>{props.title}</h2>
       </div>
    )
-}
+};
