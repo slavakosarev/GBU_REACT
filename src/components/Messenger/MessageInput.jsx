@@ -10,8 +10,6 @@ const useStyles = makeStyles(() => ({
       justifyContent: 'space-between',
       alignItems: 'center',
       paddingLeft: '16px',
-      width: '50%',
-      margin: '0 24% 0 16%'
    },
    input: {
       flexGrow: 1
