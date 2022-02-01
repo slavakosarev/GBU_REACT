@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useParams, Navigate, Outlet } from 'react-router-dom';
 import { MessageList } from './MessageList';
 import { MessageInput } from './MessageInput';
-import { useParams, Redirect } from 'react-router-dom';
 import { CHATS } from '../../mocks/chats'
 
 
@@ -29,7 +29,6 @@ export const Messenger = () => {
          return
       }
       const lastMessage = messageList[messageList.length - 1];
-
       if (lastMessage.autor === 'bot') {
          return
       }
@@ -38,7 +37,7 @@ export const Messenger = () => {
    }, [messageList, sendMessage]);
 
    if (!CHATS.find(({ id }) => id === chatId)) {
-      return <Redirect to="/chats" />
+      return CHATS ? <Outlet /> : <Navigate to="/chats" />
    }
 
    return (

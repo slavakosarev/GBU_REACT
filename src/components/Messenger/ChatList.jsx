@@ -8,7 +8,7 @@ export const ChatList = ({ list }) => {
          {list.map((item) => (
             <Chat key={item.id} {...item} />
          ))}
-         <Chat id="1" name="nochat" />
+         <Chat id={1} name="nochat" />
       </List>
    )
 };
@@ -16,7 +16,7 @@ export const ChatList = ({ list }) => {
 ChatList.propTypes = {
    list: propTypes.arrayOf(
       propTypes.shape({
-         id: propTypes.string.isRequired,
+         id: propTypes.number.isRequired,
          name: propTypes.string
       })
    )
