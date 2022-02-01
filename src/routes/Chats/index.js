@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import { ChatList } from '../../mocks/ChatList';
+import { ChatList } from '../../components/Messenger/ChatList';
 import { CHATS } from '../../mocks/chats';
 import propTypes from 'prop-types';
 

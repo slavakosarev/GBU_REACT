@@ -1,9 +1,9 @@
 import { AppBar, Button, Toolbar } from '@mui/material';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Home } from '../routes/Home';
-import { Chats } from '../routes/Chats';
-import { Profile } from '../routes/Profile';
+import { Home } from '../../routes/Home';
+import { Profile } from '../../routes/Profile';
+import { Chats } from '../../routes/Chats';
 import { Messenger } from '..';
 
 export const Header = () => {
@@ -16,24 +16,20 @@ export const Header = () => {
                      Home
                   </Button>
                   <Button to="/profile" component={Link} color="inherit">
-                     Home
+                     Profile
                   </Button>
                   <Button to="/chats" component={Link} color="inherit">
-                     Home
+                     Chats
                   </Button>
                </Toolbar>
             </AppBar>
-            <Switch>
-               <Route path="/chats">
-                  <Chats>
-                     <Switch>
-                        <Route component={Messenger} path="/chats/:chatId" />
-                     </Switch>
-                  </Chats>
-                  </Route>
-               <Route component={Profile} path="/profile" />
-               <Route component={Home} path="/" />
-            </Switch>
+            <Routes>
+               <Route element={<Chats />} path="/chats">   
+                  <Route element={<Messenger />} path="/chats/:chatId" />
+               </Route>
+               <Route element={<Profile />} path="/profile" />
+               <Route element={<Home />} path="/" />
+            </Routes>
          </BrowserRouter>
       </div>
    )
