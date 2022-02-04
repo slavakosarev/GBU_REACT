@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Home } from '../../routes/Home';
 import { Profile } from '../../routes/Profile';
 import { Chats } from '../../routes/Chats';
-import { Messenger } from '..';
+import { Messenger } from '../../routes/Messenger';
 import { Provider } from 'react-redux';
 import { store } from '../../store/index';
 
@@ -28,7 +28,7 @@ export const Header = () => {
                </AppBar>
                <Routes>
                   <Route element={<Chats />} path="/chats">
-                     <Route element={<Messenger />} path="/chats/:chatId" />
+                     <Route element={<Messenger />} path="/chats:chatId" />
                   </Route>
                   <Route element={<Profile />} path="/profile" />
                   <Route element={<Home />} path="/" />

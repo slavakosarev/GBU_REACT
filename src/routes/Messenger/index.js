@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useParams, Navigate, Outlet } from 'react-router-dom';
-import { MessageList } from './MessageList';
-import { MessageInput } from './MessageInput';
+import { useParams, Navigate } from 'react-router-dom';
+import { MessageList } from '../../components/Message/MessageList';
+import { MessageInput } from '../../components/Message/MessageInput';
 import { CHATS } from '../../mocks/chats'
 
 
 
 export const Messenger = () => {
    const { chatId } = useParams();
+   console.log(chatId);
    const [messageList, setMessageList] = useState([]);
    const sendMessage = (autor, text) => {
       const newMessageList = [...messageList];
       const newMessage = {
          autor,
-         text,
-         id: Date.now()
+         text
       };
       newMessageList.push(newMessage);
       setMessageList(newMessageList);
@@ -32,12 +32,13 @@ export const Messenger = () => {
       if (lastMessage.autor === 'bot') {
          return
       }
-      
-      setTimeout(() => sendMessage('bot', 'hello'), 1500);
-   }, [messageList, sendMessage]);
+      sendMessage("bot", "hello");
+
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [messageList]);
 
    if (!CHATS.find(({ id }) => id === chatId)) {
-      return CHATS ? <Outlet /> : <Navigate to="/chats" />
+      return <Navigate to="/chats" />
    }
 
    return (

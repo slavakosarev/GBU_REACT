@@ -1,6 +1,6 @@
 import { List } from '@mui/material';
 import propTypes from 'prop-types';
-import { Message } from './Message';
+import { Message } from '.';
 
 export const MessageList = (props) => {
    return (
@@ -15,7 +15,7 @@ export const MessageList = (props) => {
 MessageList.propTypes = {
    messageList: propTypes.arrayOf(
       propTypes.shape({
-         id: propTypes.number,
+         id: propTypes.string.isRequired,
          text: propTypes.string,
          author: propTypes.string
       })

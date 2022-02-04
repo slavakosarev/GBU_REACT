@@ -11,6 +11,6 @@ export const Chat = ({id, name }) => {
 };
 
 Chat.propTypes = {
-   id: propTypes.number,
+   id: propTypes.string.isRequired,
    name: propTypes.string
 };

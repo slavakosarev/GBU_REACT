@@ -21,7 +21,7 @@ export const Message = (props) => {
 };
 
 Message.propTypes = {
-   id: propTypes.number,
+   id: propTypes.string,
    text: propTypes.string,
    autor: propTypes.string
 };
