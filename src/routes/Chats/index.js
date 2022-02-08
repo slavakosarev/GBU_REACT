@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 import propTypes from 'prop-types';
 import { ChatList } from '../../components/Message/ChatList';
 import { CHATS } from '../../mocks/chats';
-import { Messenger } from '../Messenger';
+import { Messages } from '../Messages';
 import { getChatList } from '../../store/chats/selectors';
 import { createChat, removeChat, setChats } from '../../store/chats/actions';
 import { removeMessagesByChatId } from '../../store/messages/actions';
@@ -50,7 +50,7 @@ export const Chats = () => {
          </div>
          <div>
             <Routes>
-               <Route element={<Messenger />} path='/chats/:chatId' />
+               <Route element={<Messages />} path='/chats/:chatId' />
             </Routes>
          </div>
       </div>

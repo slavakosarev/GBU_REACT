@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {TOGGLE_SHOW_PROFILE} from "../../store/profile/action"
+import { TOGGLE_SHOW_PROFILE } from "../../store/profile/action";
 
 export const Profile = () => {
    const dispatch = useDispatch();

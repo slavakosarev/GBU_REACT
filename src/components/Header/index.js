@@ -26,7 +26,7 @@ export const Header = () => {
                   </Toolbar>
                </AppBar>
                <Routes>
-                  <Route element={<Chats />} path="/chats" />
+                  <Route element={<Chats />} path="/chats/*" />
                   <Route element={<Profile />} path="/profile" />
                   <Route element={<Home />} path="/" />
                </Routes>

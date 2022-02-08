@@ -8,7 +8,7 @@ import { hasChatById } from '../../store/chats/selectors';
 import { createMessage } from '../../store/messages/actions';
 
 
-export const Messenger = () => {
+export const Messages = () => {
    const { chatId } = useParams();
    const dispatch = useDispatch();
    const messageList = useSelector(getChatMessagesById(chatId));
