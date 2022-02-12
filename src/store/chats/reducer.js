@@ -1,4 +1,4 @@
-import { CREATE_CHAT, REMOVE_CHAT, SET_CHATS } from './actions';
+import { ADD_CHAT as CREATE_CHAT, REMOVE_CHAT, SET_CHATS } from './actions';
 
 const initialState = {
    chats: []
