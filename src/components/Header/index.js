@@ -7,6 +7,7 @@ import { Home } from '../../routes/Home';
 import { Profile } from '../../routes/Profile';
 import { Chats } from '../../routes/Chats';
 import { persistor, store } from '../../store';
+import { FetchReqres } from "../routes/reqres/";
 
 export const Header = () => {
    return (
@@ -25,12 +26,16 @@ export const Header = () => {
                         <Button to="/chats" component={Link} color="inherit">
                            Chats
                         </Button>
+                        <Button to="/reqres/middleware" component={Link} color="inherit">
+                           Reqres
+                        </Button>
                      </Toolbar>
                   </AppBar>
                   <Routes>
                      <Route element={<Chats />} path="/chats/*" />
                      <Route element={<Profile />} path="/profile" />
                      <Route element={<Home />} path="/" />
+                     <Route element={<FetchReqres />} path="/reqres/middleware">
                   </Routes>
                </BrowserRouter>
             </PersistGate>
