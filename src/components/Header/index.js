@@ -8,6 +8,7 @@ import { Profile } from '../../routes/Profile';
 import { Chats } from '../../routes/Chats';
 import { persistor, store } from '../../store';
 import { FetchReqres } from "../routes/reqres/";
+import { MiddlewareReqRes } from "../routes/reqres/middleware";
 
 export const Header = () => {
    return (
@@ -26,8 +27,11 @@ export const Header = () => {
                         <Button to="/chats" component={Link} color="inherit">
                            Chats
                         </Button>
-                        <Button to="/reqres/middleware" component={Link} color="inherit">
+                        <Button to="/reqres/" component={Link} color="inherit">
                            Reqres
+                        </Button>
+                        <Button to="/reqres/middleware" component={Link} color="inherit">
+                           MiddlewareReqRes
                         </Button>
                      </Toolbar>
                   </AppBar>
@@ -35,7 +39,12 @@ export const Header = () => {
                      <Route element={<Chats />} path="/chats/*" />
                      <Route element={<Profile />} path="/profile" />
                      <Route element={<Home />} path="/" />
-                     <Route element={<FetchReqres />} path="/reqres/middleware">
+                     <Route path="/reqres/middleware">
+                        <MiddlewareReqRes />
+                     </Route>
+                     <Route path="/reqres">
+                        <FetchReqres />
+                     </Route>
                   </Routes>
                </BrowserRouter>
             </PersistGate>

@@ -8,7 +8,7 @@ const execute = async (url) => {
    }
 
    return response.json()
-}
+};
 
 const execute2 = async (url) => {
    try {
@@ -24,7 +24,7 @@ const execute2 = async (url) => {
    } catch (e) {
       return [e, undefined];
    }
-}
+};
 
 export const api = {
    getUsers: async (page, per_page) => execute(
@@ -34,4 +34,4 @@ export const api = {
       getPaginationParams(page, per_page)(getUsersPath())
    ),
    getUserById: (userId) => execute((getUserByIdPath(userId))),
-}
+};
