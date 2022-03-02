@@ -3,28 +3,29 @@ import { Link, useHistory } from "react-router-dom";
 import { Button, Form, Alert } from "react-bootstrap";
 import { auth } from "../firebase";
 
-export const Login = () => {
+export const LoginFormTestIds = {
+   submit: 'LoginForm-submit',
+   reset: 'LoginForm-reset',
+   loginField: 'LoginForm-loginField',
+   passwordField: 'LoginForm-passwordField',
+};
 
+export const Login = () => {
    const { push } = useHistory();
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
-
    const handlePassChange = (e) => {
       setPassword(e.target.value);
    };
-
    const handleEmailChange = (e) => {
       setEmail(e.target.value);
    };
-
    const handleSubmit = async (e) => {
       console.log(email, password);
       e.preventDefault();
-
       try {
          await auth.signInWithEmailAndPassword(email, password);
-
          push("/profile");
       } catch (e) {
          setError(e);
@@ -44,7 +45,6 @@ export const Login = () => {
                value={email}
             />
          </Form.Group>
-
          <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -55,9 +55,7 @@ export const Login = () => {
                value={password}
             />
          </Form.Group>
-
          {error && <Alert>{error.toString()}</Alert>}
-
          <Button variant="primary" type="submit">
             Submit
          </Button>
@@ -66,5 +64,5 @@ export const Login = () => {
             Already have an account? <Link to="/signup">Sign up</Link>
          </p>
       </Form>
-   )
+   );
 };
