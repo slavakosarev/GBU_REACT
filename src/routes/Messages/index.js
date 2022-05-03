@@ -1,23 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { MessageList } from '../../components/Message/MessageList';
 import { MessageInput } from '../../components/Message/MessageInput';
-import { CHATS } from '../../mocks/chats'
+import { getChatMessagesById } from '../../store/messages/selectors';
+import { hasChatById } from '../../store/chats/selectors';
+import { createMessage } from '../../store/messages/actions';
 
 
-
-export const Messenger = () => {
+export const Messages = () => {
    const { chatId } = useParams();
-   console.log(chatId);
-   const [messageList, setMessageList] = useState([]);
+   const dispatch = useDispatch();
+   const messageList = useSelector(getChatMessagesById(chatId));
+   const hasChat = useSelector(hasChatById(chatId));
+
    const sendMessage = (autor, text) => {
-      const newMessageList = [...messageList];
       const newMessage = {
          autor,
          text
       };
-      newMessageList.push(newMessage);
-      setMessageList(newMessageList);
+      dispatch(createMessage(newMessage, chatId))
    };
    
    const onSendMessage = (value) => {
@@ -25,7 +27,8 @@ export const Messenger = () => {
    };
 
    useEffect(() => {
-      if (messageList.length === 0) {
+
+      if (!messageList || messageList.length === 0) {
          return
       }
       const lastMessage = messageList[messageList.length - 1];
@@ -37,7 +40,7 @@ export const Messenger = () => {
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [messageList]);
 
-   if (!CHATS.find(({ id }) => id === chatId)) {
+   if (!hasChat) {
       return <Navigate to="/chats" />
    }
 

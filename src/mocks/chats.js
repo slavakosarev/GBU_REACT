@@ -1,7 +1,8 @@
+import { nanoid } from 'nanoid';
 import propTypes from 'prop-types';
 
 const createChatMock = (i) => ({
-   id: String(Date.now() + Math.random()),
+   id: nanoid(),
    name: `name ${i + 1}`
 });
 
