@@ -4,13 +4,13 @@ import propTypes from 'prop-types';
 
 export const Chat = ({id, name }) => {
    return (
-      <ListItem components={Link} to={id}>
+      <ListItem components={Link} to={`/chats/${id}`}>
          <ListItemText>{name}</ListItemText>
       </ListItem>
    )
 };
 
 Chat.propTypes = {
-   id: propTypes.number,
+   id: propTypes.string.isRequired,
    name: propTypes.string
 };

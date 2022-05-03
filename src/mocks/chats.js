@@ -1,10 +1,16 @@
+import { nanoid } from 'nanoid';
+import propTypes from 'prop-types';
+
 const createChatMock = (i) => ({
-   id: Date.now() + Math.random(),
+   id: nanoid(),
    name: `name ${i + 1}`
 });
-console.log(createChatMock());
 
 export const CHATS = Array.from({ length: 10 }).map((_, i) => 
    createChatMock(i)
 );
-console.log(CHATS);
+
+CHATS.propTypes = {
+   id: propTypes.string,
+   name: propTypes.string
+};
