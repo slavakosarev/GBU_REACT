@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css'; // данное подключение глобально, изоляции компонента не будет. Лучше использовать модуль css
 import { Button } from "./components";
 import { Header } from "./components";
 import { Message } from "./components";
+=======
+import './App.css';
+import { Header } from './components';
+import { Messenger } from './components';
+>>>>>>> homework#4
 
 function App() {
   return (
     <div className="App">
       <Header title="Single Page Application"></Header>
+<<<<<<< HEAD
       <img src={logo} className="App-logo" alt="logo" />
       <Button
         onClick={() => {
@@ -29,6 +36,9 @@ function App() {
           Learn React
         </a>
       </header> */}
+=======
+      <Messenger />
+>>>>>>> homework#4
     </div >
   );
 }
